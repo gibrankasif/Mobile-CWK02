@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Mobile-CWK02</string>
+    <string name="register_movie">Register Movie</string>
+    <string name="display_movies">Display Movies</string>
+    <string name="favourites">Favourites</string>
+    <string name="search_movie">Search</string>
+    <string name="rate_movie">Ratings</string>
+    <string name="edit_movies">Edit Movies</string>
+    <string name="year">Year</string>
+    <string name="save">Save</string>
+    <string name="director">Director</string>
+    <string name="actors_actresses">Actors/Actresses</string>
+    <string name="rating">Rating</string>
+    <string name="review">Review</string>
+    <string name="title">Title</string>
+</resources>

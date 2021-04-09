@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background_template"
+    tools:context=".RegisterMovie">
+
+    <Button
+        android:id="@+id/movie_register_button"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/save"
+        android:textSize="18sp"
+
+        android:textStyle="bold"
+        app:backgroundTint="#FFAB40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_review_textbox"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <EditText
+        android:id="@+id/movie_year_textbox"
+        android:layout_width="249dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_year"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/year"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title_textbox"
+        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+
+    <EditText
+        android:id="@+id/movie_director_textbox"
+        android:layout_width="249dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_person"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/director"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_year_textbox"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/movie_actors_textbox"
+        android:layout_width="249dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_actors"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/actors_actresses"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_director_textbox"
+        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+
+    <EditText
+        android:id="@+id/movie_rating_textbox"
+        android:layout_width="249dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_moive_star_rating"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/rating"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_actors_textbox"
+        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+
+    <EditText
+        android:id="@+id/movie_review_textbox"
+        android:layout_width="249dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_rate_review"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/review"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_rating_textbox"
+        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+
+    <EditText
+        android:id="@+id/movie_title_textbox"
+        android:layout_width="249dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_icon"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/title"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
