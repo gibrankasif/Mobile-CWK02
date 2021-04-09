@@ -7,7 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
-import static com.gibran.mobile_cwk02.Constants.*;
+import static com.gibran.mobile_cwk02.Constants.ACTORS;
+import static com.gibran.mobile_cwk02.Constants.DIRECTOR;
+import static com.gibran.mobile_cwk02.Constants.ID;
+import static com.gibran.mobile_cwk02.Constants.RATING;
+import static com.gibran.mobile_cwk02.Constants.REVIEW;
+import static com.gibran.mobile_cwk02.Constants.TABLE_NAME;
+import static com.gibran.mobile_cwk02.Constants.TITLE;
+import static com.gibran.mobile_cwk02.Constants.YEAR;
 
 
 public class MovieData extends SQLiteOpenHelper {
@@ -24,22 +31,22 @@ public class MovieData extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        movieDB.execSQL("CREATE TABLE " + TABLE_NAME + " ("
-                + ID +" INTEGER PRIMARY KEY, "
-                + TITLE + " TEXT NOT NULL UNIQUE,"
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " ("
+                + ID +" INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TITLE + " TEXT NOT NULL,"
                 + YEAR + " INTEGER NOT NULL,"
                 + DIRECTOR + " TEXT NOT NULL,"
                 + ACTORS + " TEXT NOT NULL,"
                 + RATING + " INTEGER NOT NULL,"
-                + REVIEW + " TEXT NOT NULL);"); }
+                + REVIEW + " TEXT NOT NULL)"); }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        movieDB.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
-    public void insertMovie(Integer id, String title, Integer year, String director, String actors, Integer rating, String review) {
+    public void insertMovie(String title, Integer year, String director, String actors, Integer rating, String review) {
         movieDB = getWritableDatabase();
         Cursor c = movieDB.rawQuery("SELECT "+ TITLE + " FROM "+ TABLE_NAME + " WHERE "+ TITLE + " = '"+title+"'", null);
         if(c.moveToFirst())
@@ -52,7 +59,8 @@ public class MovieData extends SQLiteOpenHelper {
             values.put(DIRECTOR, director);
             values.put(ACTORS, actors);
             values.put(RATING, rating);
-            values.put(RATING, review);
+            values.put(REVIEW, review);
+
             movieDB.insert(TABLE_NAME, null, values);
         }
     }

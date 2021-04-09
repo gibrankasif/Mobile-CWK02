@@ -17,6 +17,7 @@
 
         android:textStyle="bold"
         app:backgroundTint="#FFAB40"
+        android:onClick="registerMovie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
