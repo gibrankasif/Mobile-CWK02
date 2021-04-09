@@ -22,10 +22,13 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.reg_movie_button:
-                Intent movieOptionRegister = new Intent(MainActivity.this,RegisterMovie.class);
+                Intent movieOptionRegister = new Intent(MainActivity.this, RegisterMovie.class);
                 startActivity(movieOptionRegister);
                 break;
-
+            case R.id.display_movies_button:
+                Intent movieOptionDisplay = new Intent(MainActivity.this, DisplayMovies.class);
+                startActivity(movieOptionDisplay);
+                break;
             default:
                 break;
         }

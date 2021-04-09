@@ -9,4 +9,5 @@ public interface Constants {
     public static final String ACTORS = "actors" ;
     public static final String RATING = "rating" ;
     public static final String REVIEW = "review" ;
+    public static final String FAVOURITE = "favourite" ;
 }

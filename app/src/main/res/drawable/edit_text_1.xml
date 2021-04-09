@@ -4,10 +4,12 @@
 <!--    <item-->
 <!--        android:state_pressed="true"-->
 <!--        android:state_enabled="true"-->
+<!--        android:color="#FFFFFF"-->
 <!--        android:drawable="@drawable/rounded_focused" />-->
 <!--    <item-->
 <!--        android:state_focused="true"-->
 <!--        android:state_enabled="true"-->
+<!--        android:color="#FFFFFF"-->
 <!--        android:drawable="@drawable/rounded_focused" />-->
     <item
         android:state_enabled="true"

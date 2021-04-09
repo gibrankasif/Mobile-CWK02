@@ -4,19 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class RegisterMovie extends AppCompatActivity {
     private EditText movieTitle, movieYear, movieDirector, movieActors, movieRate, movieReview;
-    private Button submit;
     private MovieData movieData;
-    private StringBuilder errorBucket;
+    private StringBuilder actorsPlaying;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,27 +29,35 @@ public class RegisterMovie extends AppCompatActivity {
         movieActors = findViewById(R.id.movie_actors_textbox);
         movieRate = findViewById(R.id.movie_rating_textbox);
         movieReview = findViewById(R.id.movie_review_textbox);
-        submit = findViewById(R.id.movie_register_button);
         movieData = new MovieData(this);
+
+        movieTitle.setError("Fill");
+        movieYear.setError("Fill");
+        movieDirector.setError("Fill");
+        movieActors.setError("Fill");
+        movieRate.setError("Fill");
+        movieReview.setError("Fill");
 
         editTextErrorAlert();
 
     }
 
     public void registerMovie(View view){
-        boolean alertToast = false;
+
         if(movieTitle.getError() != null || movieYear.getError() != null || movieDirector.getError() != null ||
                 movieActors.getError() != null || movieRate.getError() != null  || movieReview.getError() != null) {
             Toast.makeText(this,"Please check form contents!", Toast.LENGTH_LONG).show();
+
         }
         else {
             String title = movieTitle.getText().toString();
             Integer year = Integer.parseInt(movieYear.getText().toString());
             String director = movieDirector.getText().toString();
-            String actors = movieActors.getText().toString();
+            String actors = actorsPlaying.toString();
             Integer rate = Integer.parseInt(movieRate.getText().toString());
             String review = movieReview.getText().toString();
-            Toast.makeText(this, "Successfully Added " + title, Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, actors , Toast.LENGTH_LONG).show();
+
             movieData.insertMovie(title, year, director, actors, rate, review);
         }
     }
@@ -95,17 +104,26 @@ public class RegisterMovie extends AppCompatActivity {
         movieActors.addTextChangedListener(new TextValidator(movieActors) {
             @Override public void validate(EditText editText, String text) {
                 emptyStringField(editText, text);
-                String validation = "^[a-zA-Z,|\\s]+";
-                String[] actors = text.split("\\s*,\\s*");
-                Toast.makeText(getApplicationContext(), Arrays.toString(actors), Toast.LENGTH_LONG).show();
+                String validation = "^[a-zA-Z,\\s]+";
 
-                if(text.matches(validation)){
-                    editText.setError("idk");
-
-                }else{
-                    editText.setError(null);
+                if (text.isEmpty() || text == null) {
+                    editText.setError("Field is Empty!");
                 }
-
+                else if(!text.matches(validation)) {
+                    editText.setError("Unwanted Characters present!");
+                }
+                else{
+                    editText.setError(null);
+                    String[] actors = text.split("\\s*,\\s*");
+                    List<String> actorsList = new ArrayList<>(Arrays.asList(actors));
+                    actorsList.removeAll(Arrays.asList("", null));
+                    if (actorsList.size() >= 1) {
+                        actorsPlaying = new StringBuilder(actorsList.get(0));
+                    }
+                    for (int i = 1; i < actorsList.size(); i++) {
+                        actorsPlaying.append(", ").append(actorsList.get(i));
+                    }
+                }
             }
         });
 
