@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -94,8 +95,20 @@ public class RegisterMovie extends AppCompatActivity {
         movieActors.addTextChangedListener(new TextValidator(movieActors) {
             @Override public void validate(EditText editText, String text) {
                 emptyStringField(editText, text);
+                String validation = "^[a-zA-Z,|\\s]+";
+                String[] actors = text.split("\\s*,\\s*");
+                Toast.makeText(getApplicationContext(), Arrays.toString(actors), Toast.LENGTH_LONG).show();
+
+                if(text.matches(validation)){
+                    editText.setError("idk");
+
+                }else{
+                    editText.setError(null);
+                }
+
             }
         });
+
         movieRate.addTextChangedListener(new TextValidator(movieRate) {
             @Override public void validate(EditText editText, String text) {
                 emptyStringField(editText, text);
