@@ -84,6 +84,22 @@ public class MovieData extends SQLiteOpenHelper {
         }
     }
 
+    public void updateFavourites(Movie movie) {
+        movieDB  = this.getWritableDatabase();
+        String whereClause = "title=?";
+        String[] whereArgs = {movie.getTitle()};
+
+        ContentValues values = new ContentValues();
+        if(movie.isFavourite() == true){
+            values.put(FAVOURITE, "0");
+        }
+        else{
+            values.put(FAVOURITE, "1");
+        }
+        movieDB.update(TABLE_NAME, values, whereClause, whereArgs);
+
+    }
+
     public StringBuilder getMovieDatabase() {
         movieDB = getReadableDatabase();
         Cursor cr = movieDB.rawQuery("Select * from " + TABLE_NAME, null);
@@ -110,8 +126,9 @@ public class MovieData extends SQLiteOpenHelper {
     public ArrayList<Movie> getMovieObjects()
     {
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_NAME;
-        // Get the isntance of the database
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + TITLE + " ASC";
+
+        // Get the instance of the database
         movieDB  = this.getWritableDatabase();
         //get the cursor you're going to use
         Cursor cursor = movieDB.rawQuery(selectQuery, null);

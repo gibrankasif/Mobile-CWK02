@@ -8,15 +8,31 @@
     android:background="@drawable/ic_background_template"
     tools:context=".DisplayMovies">
 
+
     <ListView
         android:id="@+id/displayed_movies_listview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/addToFav_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.333" />
+
+
+    <Button
+        android:id="@+id/addToFav_button"
+        android:layout_width="753dp"
+        android:layout_height="80dp"
+        android:text="@string/add_to_favourites"
+        android:onClick="saveFavourites"
+        android:textSize="18sp"
+        app:backgroundTint="#FFAB40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayed_movies_listview" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

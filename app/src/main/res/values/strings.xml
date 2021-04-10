@@ -13,4 +13,6 @@
     <string name="rating">Rating</string>
     <string name="review">Review</string>
     <string name="title">Title</string>
+    <string name="moviess">moviess</string>
+    <string name="add_to_favourites">Add to Favourites</string>
 </resources>
