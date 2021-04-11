@@ -38,7 +38,7 @@
         android:ems="10"
         android:hint="@string/year"
         android:importantForAutofill="no"
-        android:inputType="number"
+        android:inputType="phone"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -126,13 +126,37 @@
         android:layout_width="310dp"
         android:layout_height="58dp"
         android:layout_marginTop="20dp"
-        android:background="#00FFFFFF"
-        android:foreground="@drawable/edit_text_1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alertDialog_review"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintTop_toBottomOf="@+id/alertDialog_review" />
+
+    <Button
+        android:id="@+id/updateMovie_button"
+        android:layout_width="148dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/update"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favourite_movie_spinner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/cancelUpdate_buttob"
+        android:layout_width="148dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="@string/cancel"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/updateMovie_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/updateMovie_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

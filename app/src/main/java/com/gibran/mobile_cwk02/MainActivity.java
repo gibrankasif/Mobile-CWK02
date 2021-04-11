@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         //Removes the title bar of the apps main screen
         try {
             this.getSupportActionBar().hide();
-        } catch (NullPointerException e) {
+        } catch (NullPointerException ignored) {
         }
 
     }
@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.edit_movies_button:
                 Intent movieOptionEdit = new Intent(MainActivity.this, EditMovie.class);
                 startActivity(movieOptionEdit);
+                break;
+            case R.id.search_movie_button:
+                Intent movieOptionSearch = new Intent(MainActivity.this, SearchMovies.class);
+                startActivity(movieOptionSearch);
+                break;
+            case R.id.ratings_button:
+                Intent movieOptionRatings = new Intent(MainActivity.this, MovieRatings.class);
+                startActivity(movieOptionRatings);
                 break;
             default:
                 break;

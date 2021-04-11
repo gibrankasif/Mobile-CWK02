@@ -15,4 +15,8 @@
     <string name="title">Title</string>
     <string name="movies">movies</string>
     <string name="add_to_favourites">Add to Favourites</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="search">Search</string>
+    <string name="find_movie_in_imdb">Find movie in IMDB</string>
 </resources>

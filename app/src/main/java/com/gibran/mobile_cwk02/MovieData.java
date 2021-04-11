@@ -1,5 +1,6 @@
 package com.gibran.mobile_cwk02;
 
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -85,7 +86,7 @@ public class MovieData extends SQLiteOpenHelper {
     }
 
     public void updateFavourites(Movie movie) {
-        movieDB  = this.getWritableDatabase();
+        movieDB  = this.getReadableDatabase();
         String whereClause = "title=?";
         String[] whereArgs = {movie.getTitle()};
 
@@ -106,7 +107,6 @@ public class MovieData extends SQLiteOpenHelper {
         StringBuilder str = new StringBuilder();
 
         while(cr.moveToNext()){
-//            String c1 = cr.getString(0);
             String title = cr.getString(1);
             String year = cr.getString(2);
             String director = cr.getString(3);
@@ -129,7 +129,8 @@ public class MovieData extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + TITLE + " ASC";
 
         // Get the instance of the database
-        movieDB  = this.getWritableDatabase();
+        movieDB  = this.getReadableDatabase();
+
         //get the cursor you're going to use
         Cursor cursor = movieDB.rawQuery(selectQuery, null);
 
@@ -150,7 +151,7 @@ public class MovieData extends SQLiteOpenHelper {
 
                     }
 
-                    Movie movie = new Movie(cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5)),cursor.getString(6), favouriteMovie);
+                    Movie movie = new Movie(Integer.parseInt(cursor.getString(0)),cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5)),cursor.getString(6), favouriteMovie);
 
                     // Adding contact to list
                     movieList.add(movie);
@@ -175,7 +176,7 @@ public class MovieData extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + FAVOURITE + " = '0'"+ " ORDER BY " + TITLE + " ASC";
 
         // Get the instance of the database
-        movieDB  = this.getWritableDatabase();
+        movieDB  = this.getReadableDatabase();
         //get the cursor you're going to use
         Cursor cursor = movieDB.rawQuery(selectQuery, null);
         //this is optional - if you want to return one object
@@ -211,6 +212,78 @@ public class MovieData extends SQLiteOpenHelper {
             movieDB.close();
         }
         return movieList;
+    }
+
+    public void updateMovieEntry(Integer id,String title, Integer year, String director, String actors, Integer rating, String review, String favourite) {
+        // Get the instance of the database
+        movieDB  = this.getWritableDatabase();
+        String strFilter = "movie_id=" + id;
+        ContentValues values = new ContentValues();
+        values.put(TITLE, title);
+        values.put(YEAR, year);
+        values.put(DIRECTOR, director);
+        values.put(ACTORS, actors);
+        values.put(RATING, rating);
+        values.put(REVIEW, review);
+        values.put(FAVOURITE, favourite);
+        //get the cursor you're going to use
+        movieDB.update(TABLE_NAME, values, strFilter, null);
+        movieDB.close();
+    }
+
+    public ArrayList<Movie> searchMovie(String query) {
+        ArrayList<Movie> queriedMovies = new ArrayList<>();
+
+        String[] parts = query.split(" "); /* Should split to {"1964", "ford", "mustang"} */
+        movieDB = this.getReadableDatabase();
+
+        String queryString = "";
+        for (int i = 0; i < parts.length; i++) {
+            queryString += TITLE + " LIKE '%" + parts[i] + "%' OR ";
+            queryString += DIRECTOR + " LIKE '%" + parts[i] + "%' OR ";
+            queryString += ACTORS + " LIKE '%" + parts[i] + "%'";
+            if (i != (parts.length - 1)) {
+                queryString += " OR ";
+            }
+        }
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE ("+ queryString + ") ORDER BY " + TITLE + " ASC";
+        movieDB  = this.getReadableDatabase();
+        //get the cursor you're going to use
+        Cursor cursor = movieDB.query(TABLE_NAME,
+                new String[]{TITLE, YEAR, DIRECTOR, ACTORS, RATING, REVIEW, FAVOURITE}, queryString, null, null, null, TITLE + " ASC");
+        try
+        {
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    boolean favourite = false;
+                    if (cursor.getString(6).equals("0")){
+                        favourite = true;
+                    }
+
+                    Movie movie = new Movie(cursor.getString(0),Integer.parseInt(cursor.getString(1)),cursor.getString(2), cursor.getString(3),Integer.parseInt(cursor.getString(4)),cursor.getString(5),false);
+                    queriedMovies.add(movie);
+                    // Adding contact to list
+                } while (cursor.moveToNext());
+            }else{
+                return null;
+            }
+        }
+        catch (SQLiteException e)
+        {
+            Log.d("SQL Error", e.getMessage());
+            return null;
+        }
+        finally
+        {
+            //release all your resources
+            cursor.close();
+            movieDB.close();
+        }
+
+
+        return queriedMovies;
+
     }
 
 

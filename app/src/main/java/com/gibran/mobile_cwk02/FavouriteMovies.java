@@ -34,6 +34,7 @@ public class FavouriteMovies extends AppCompatActivity {
     public void setListView() {
         listView = findViewById(R.id.displayed_favourite_movies_listView);
         listView.setAdapter(adapter);
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override

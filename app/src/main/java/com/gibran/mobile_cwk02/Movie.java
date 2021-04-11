@@ -1,6 +1,7 @@
 package com.gibran.mobile_cwk02;
 
 public class Movie {
+    private int id;
     private String title;
     private int year;
     private String director;
@@ -10,6 +11,17 @@ public class Movie {
     private boolean favourite;
 
     public Movie(String title, int year, String director, String actors, int rating, String review, boolean favourite) {
+        this.title = title;
+        this.year = year;
+        this.director = director;
+        this.actors = actors;
+        this.rating = rating;
+        this.review = review;
+        this.favourite = favourite;
+    }
+
+    public Movie(int id, String title, int year, String director, String actors, int rating, String review, boolean favourite) {
+        this.id = id;
         this.title = title;
         this.year = year;
         this.director = director;
@@ -82,6 +94,14 @@ public class Movie {
         else {
             return actors.split("\\s*,\\s*");
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
