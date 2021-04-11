@@ -1,17 +1,14 @@
 package com.gibran.mobile_cwk02;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +25,14 @@ public class DisplayMovies extends AppCompatActivity {
         setContentView(R.layout.activity_display_movies);
         movieData = new MovieData(this);
         movieList = movieData.getMovieObjects();
-        addToFavourites = findViewById(R.id.addToFav_button);
+        addToFavourites = findViewById(R.id.saveFav_button);
         adapter = new MovieAdapter(getApplicationContext(),  movieList);
         setListView();
     }
 
 
     public void setListView() {
-        listView = findViewById(R.id.displayed_movies_listview);
+        listView = findViewById(R.id.displayed_movies_listView);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {

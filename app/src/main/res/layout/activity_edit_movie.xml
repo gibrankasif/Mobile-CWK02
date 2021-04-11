@@ -5,13 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_background_template"
-    tools:context=".FavouriteMovies">
+    tools:context=".EditMovie">
+
+<!--    <ListView-->
+<!--        android:id="@+id/editable_movies_listView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.333" />-->
 
     <ListView
-        android:id="@+id/displayed_favourite_movies_listView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/updateFav_button"
+        android:id="@+id/editable_movies_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/updateFav_button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,16 +34,17 @@
         app:layout_constraintVertical_bias="0.333" />
 
     <Button
-        android:id="@+id/updateFav_button"
+        android:id="@+id/updateFav_button2"
         android:layout_width="753dp"
         android:layout_height="80dp"
         android:text="@string/save"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="saveFavourites"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/displayed_favourite_movies_listView" />
+        app:layout_constraintTop_toBottomOf="@+id/editable_movies_listView" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

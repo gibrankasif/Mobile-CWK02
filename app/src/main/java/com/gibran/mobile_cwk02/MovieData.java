@@ -170,8 +170,48 @@ public class MovieData extends SQLiteOpenHelper {
         }
         return movieList;
     }
+    public ArrayList<Movie> getFavouriteMovieObjects() {
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE " + FAVOURITE + " = '0'"+ " ORDER BY " + TITLE + " ASC";
 
+        // Get the instance of the database
+        movieDB  = this.getWritableDatabase();
+        //get the cursor you're going to use
+        Cursor cursor = movieDB.rawQuery(selectQuery, null);
+        //this is optional - if you want to return one object
+        //you don't need a list
+        ArrayList<Movie> movieList = new ArrayList();
+        //you should always use the try catch statement incase
+        //something goes wrong when trying to read the data
+        try
+        {
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    boolean favouriteMovie = false;
+                    if(cursor.getString(7).equals("0")){
+                        favouriteMovie = true;
 
+                    }
+                    Movie movie = new Movie(cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5)),cursor.getString(6), favouriteMovie);
+                    // Adding contact to list
+                    movieList.add(movie);
+                } while (cursor.moveToNext());
+            }
+        }
+        catch (SQLiteException e)
+        {
+            Log.d("SQL Error", e.getMessage());
+            return null;
+        }
+        finally
+        {
+            //release all your resources
+            cursor.close();
+            movieDB.close();
+        }
+        return movieList;
+    }
 
 
 

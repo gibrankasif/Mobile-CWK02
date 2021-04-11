@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_selection_button"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background_template">
+
+
+    <EditText
+        android:id="@+id/alertDialog_title"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_icon"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/title"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/alertDialog_year"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_year"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/year"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alertDialog_title"
+        tools:ignore="RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/alertDialog_director"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_person"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/director"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alertDialog_year"
+        tools:ignore="RtlHardcoded" />
+
+    <EditText
+        android:id="@+id/alertDialog_actors"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_movie_actors"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="@string/actors_actresses"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alertDialog_director"
+        tools:ignore="RtlHardcoded" />
+
+    <RatingBar
+        android:id="@+id/alertbox_rating"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:isIndicator="false"
+        android:numStars="10"
+        android:rating="10"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:stepSize="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alertDialog_actors" />
+
+    <EditText
+        android:id="@+id/alertDialog_review"
+        android:layout_width="310dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_1"
+        android:drawableLeft="@drawable/ic_rate_review"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:gravity="top|left"
+        android:hint="@string/review"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alertbox_rating"
+        tools:ignore="RtlHardcoded" />
+
+    <Spinner
+        android:id="@+id/favourite_movie_spinner"
+        android:layout_width="310dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:foreground="@drawable/edit_text_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alertDialog_review"
+        app:layout_constraintVertical_bias="0.01" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

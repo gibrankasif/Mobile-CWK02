@@ -29,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent movieOptionDisplay = new Intent(MainActivity.this, DisplayMovies.class);
                 startActivity(movieOptionDisplay);
                 break;
+            case R.id.favourites_button:
+                Intent movieOptionDisplayFavourites = new Intent(MainActivity.this, FavouriteMovies.class);
+                startActivity(movieOptionDisplayFavourites);
+                break;
+            case R.id.edit_movies_button:
+                Intent movieOptionEdit = new Intent(MainActivity.this, EditMovie.class);
+                startActivity(movieOptionEdit);
+                break;
             default:
                 break;
         }

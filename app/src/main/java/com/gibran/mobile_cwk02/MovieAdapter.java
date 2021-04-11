@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,7 +53,7 @@ public class MovieAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.singe_movie_choice, null);
         CheckedTextView textView = convertView.findViewById(R.id.simpleCheckedTextView);
-        TextView textView1 = convertView.findViewById(R.id.moviename);
+        TextView textView1 = convertView.findViewById(R.id.movieName);
         //get the property we are displaying
         Movie movie = movies.get(position);
         if(movie.isFavourite()){
@@ -63,7 +62,7 @@ public class MovieAdapter extends BaseAdapter {
 
         }else{
             textView.setChecked(false);
-            textView.setCheckMarkDrawable(0);
+            textView.setCheckMarkDrawable(R.drawable.favourite_movie_icon);
         }
 
         //get the inflater and inflate the XML layout for each item
@@ -80,7 +79,7 @@ public class MovieAdapter extends BaseAdapter {
             if (textView.isChecked()) {
 // set cheek mark drawable and set checked property to false
                 value = "un-Checked";
-                textView.setCheckMarkDrawable(0);
+                textView.setCheckMarkDrawable(R.drawable.favourite_movie_icon);
                 movie.setFavourite(false);
                 textView.setChecked(false);
             } else {

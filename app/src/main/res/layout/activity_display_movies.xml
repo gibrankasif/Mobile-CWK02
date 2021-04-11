@@ -10,10 +10,10 @@
 
 
     <ListView
-        android:id="@+id/displayed_movies_listview"
+        android:id="@+id/displayed_movies_listView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/addToFav_button"
+        app:layout_constraintBottom_toTopOf="@+id/saveFav_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
 
 
     <Button
-        android:id="@+id/addToFav_button"
+        android:id="@+id/saveFav_button"
         android:layout_width="753dp"
         android:layout_height="80dp"
         android:text="@string/add_to_favourites"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/displayed_movies_listview" />
+        app:layout_constraintTop_toBottomOf="@+id/displayed_movies_listView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
