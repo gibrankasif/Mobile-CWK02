@@ -57,25 +57,10 @@ public class MovieEditAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.single_movie_choice_selection, null);
         TextView editMovie = convertView.findViewById(R.id.edit_movie_textView);
 //        CheckedTextView textView = convertView.findViewById(R.id.edit_movie_textView);
-
         //get the property we are displaying
         Movie movie = movies.get(position);
-        editMovie.setText
-                (movie.getTitle()+"\n"
-                +movie.getDirector()+"\n"
-                +movie.getYear()+"\n"
-                +movie.getActors()+"\n"
-                +movie.getRating()+"\n"
-                +movie.getReview()+"\n");
-
-
-//        editMovie.setText(movie.getTitle());
-
-
-
-
-
-
+        String results = movie.getTitle()+ " " +movie.getYear() + "\n" +movie.getDirector() +"\n"+movie.getActors();
+        editMovie.setText(results);
 
         return convertView;
     }

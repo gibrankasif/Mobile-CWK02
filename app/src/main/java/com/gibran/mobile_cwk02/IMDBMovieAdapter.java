@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckedTextView;
-import android.widget.ImageView;
+
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -51,11 +51,11 @@ public class IMDBMovieAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.single_layer_view_imdb, null);
 
-        CheckedTextView editMovie = convertView.findViewById(R.id.imdb_movie_textView);
-        ImageView imageView = convertView.findViewById(R.id.moviePic);
+        TextView editMovie = convertView.findViewById(R.id.imdb_movie_textView);
 
         IMDBMovie movie = movies.get(position);
-        editMovie.setText(movie.toString());
+        String result = movie.getTitle() + " \n"+ movie.getRating()+"/10.0";
+        editMovie.setText(result);
 
         return convertView;
     }

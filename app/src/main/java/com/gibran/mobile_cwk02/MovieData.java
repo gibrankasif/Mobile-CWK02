@@ -1,6 +1,5 @@
 package com.gibran.mobile_cwk02;
 
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,7 +10,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.gibran.mobile_cwk02.Constants.ACTORS;
 import static com.gibran.mobile_cwk02.Constants.DIRECTOR;
@@ -56,13 +54,13 @@ public class MovieData extends SQLiteOpenHelper {
 
     public void insertMovie(String title, Integer year, String director, String actors, Integer rating, String review) {
         movieDB = getWritableDatabase();
-        Cursor c = movieDB.rawQuery("SELECT "+ TITLE + " FROM "+ TABLE_NAME + " WHERE "+ TITLE + " = '"+title.toUpperCase()+"'", null);
+        Cursor c = movieDB.rawQuery("SELECT "+ TITLE + " FROM "+ TABLE_NAME + " WHERE "+ TITLE + " = '"+title+"'", null);
         try {
             if (c.moveToFirst()) {
                 Toast.makeText(ctx, "Movie already exists", Toast.LENGTH_SHORT).show();
             } else {
                 ContentValues values = new ContentValues();
-                values.put(TITLE, title.toUpperCase());
+                values.put(TITLE, title);
                 values.put(YEAR, year);
                 values.put(DIRECTOR, director);
                 values.put(ACTORS, actors);

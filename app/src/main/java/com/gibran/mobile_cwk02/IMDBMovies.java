@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -36,7 +34,6 @@ public class IMDBMovies extends AppCompatActivity {
         listView = findViewById(R.id.imbd_movieListView32);
         movies = (ArrayList<IMDBMovie>) getIntent().getSerializableExtra("api");
 
-        Toast.makeText(getApplicationContext(),movies.toString(), Toast.LENGTH_SHORT).show();
         try {
             LoadImageFromWebOperations();
         } catch (InterruptedException e) {
@@ -67,7 +64,6 @@ public class IMDBMovies extends AppCompatActivity {
         });
     }
 
-
     public void dialogBox(int position) {
         Dialog dialog = new Dialog(this);
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -78,6 +74,7 @@ public class IMDBMovies extends AppCompatActivity {
         dialog.setContentView(dialogView);
         dialog.show();
     }
+
     public void LoadImageFromWebOperations() throws InterruptedException {
         Thread thread = new Thread(() -> {
             try {
@@ -95,30 +92,4 @@ public class IMDBMovies extends AppCompatActivity {
         });
         thread.start();
     }
-    public static void LoadImageFromWebOperations2(String url, ImageView imageView) {
-        Thread thread = new Thread(() -> {
-
-            try {
-                InputStream is = (InputStream) new URL(url).getContent();
-                Drawable d = Drawable.createFromStream(is, "src name");
-                imageView.setImageDrawable(d);
-
-            } catch (Exception e) {
-            }
-
-        });
-
-        thread.start();
-    }
-
-    public static Drawable LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            return d;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
 }

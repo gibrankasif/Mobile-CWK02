@@ -7,39 +7,46 @@
     android:background="@drawable/ic_background_template"
     tools:context=".SearchMovies">
 
+
     <EditText
         android:id="@+id/search_editText"
-        android:layout_width="261dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="241dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/edit_text_1"
         android:ems="10"
         android:hint="@string/search"
         android:inputType="textPersonName"
+        android:paddingLeft="15dp"
         app:layout_constraintEnd_toStartOf="@+id/lookup_button"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/lookup_button"
-        android:layout_width="57dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:drawableRight="@drawable/lookup_icon"
         android:onClick="querySearch"
         android:scrollbarAlwaysDrawVerticalTrack="false"
+        app:backgroundTint="#FFAB40"
+        app:layout_constraintBaseline_toBaselineOf="@+id/search_editText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableRight="@drawable/lookup_icon"
         tools:ignore="RtlHardcoded" />
-
 
     <ListView
         android:id="@+id/queried_movies_listView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

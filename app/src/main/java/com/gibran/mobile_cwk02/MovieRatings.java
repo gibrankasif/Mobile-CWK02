@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,7 +36,7 @@ public class MovieRatings extends AppCompatActivity {
     ArrayList<String> movieRatings;
 
     String urlMovieQuery = "";
-    String API_KEY = "k_9zyb24xa";
+    String API_KEY = "k_ecqa1dty";
     Button clickButton;
 
     @Override
@@ -45,6 +46,7 @@ public class MovieRatings extends AppCompatActivity {
 
         movieData = new MovieData(this);
         movieList = movieData.getMovieObjects();
+
         setListView();
         clickButton = findViewById(R.id.findInIMDB_button);
         clickButton.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +64,8 @@ public class MovieRatings extends AppCompatActivity {
     public void getIMBDInfo() {
         Thread thread = new Thread(() -> {
 
-            movieTitles = new ArrayList<>();
             movieURLs = new ArrayList<>();
             movieRatings = new ArrayList<>();
-
             apiMovieList = new ArrayList<>();
 
             urlMovieQuery = "https://imdb-api.com/en/API/SearchTitle/"+API_KEY+"/";;
@@ -99,7 +99,7 @@ public class MovieRatings extends AppCompatActivity {
 
                 }
 
-               if (movieRatings == null || movieTitles == null || movieResults.length() == 0){
+               if (movieRatings == null || movieResults.length() == 0){
                    System.out.println("No relevant results found!");
 
                }
@@ -146,8 +146,12 @@ public class MovieRatings extends AppCompatActivity {
 
 
     public void setListView() {
+        movieTitles = new ArrayList<>();
+        for(Movie movie : movieList) {
+            movieTitles.add(movie.getTitle());
+        }
         listView = findViewById(R.id.movieRatings_listView);;
-        ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(getApplicationContext(), android.R.layout.simple_list_item_checked, movieList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.single_choice_imdb_search, R.id.selectedMovieToAPI, movieTitles);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         listView.setAdapter(adapter);
@@ -156,17 +160,15 @@ public class MovieRatings extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Toast.makeText(getApplicationContext(), adapter.getItem(position).getTitle(), Toast.LENGTH_SHORT).show();
-                Movie selectedMovie = (Movie) listView.getItemAtPosition(position);
-                movieTitle = selectedMovie.getTitle();
+
+                Toast.makeText(getApplicationContext(), adapter.getItem(position).toString(), Toast.LENGTH_SHORT).show();
+//                Movie selectedMovie = (Movie) listView.getItemAtPosition(position);
+                movieTitle = adapter.getItem(position).toString();
                 Log.i("Result:", adapter.getItem(position).toString());
                 // Get data from your adapter,   the above code of line give the custom adapter's object of   current position of selected list item
             }
         });
     }
-
-
-
 
     public String getJSONResult(final String query) throws InterruptedException {
         StringBuilder result = new StringBuilder();

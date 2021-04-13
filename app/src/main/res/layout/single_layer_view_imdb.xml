@@ -12,28 +12,19 @@
     <!--        android:text="@string/movies"-->
     <!--        android:textColor="@color/white"-->
     <!--        android:textColorHint="@color/white"/>-->
-    <LinearLayout
+
+
+
+    <TextView
+        android:id="@+id/imdb_movie_textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_height="130dp"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
 
-        <CheckedTextView
-            android:id="@+id/imdb_movie_textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FF0505"
-            android:textColor="@color/white"
-            app:backgroundTint="#FF1212" />
-
-    </LinearLayout>
-    <ImageView
-        android:id="@+id/moviePic"
-        android:layout_width="450dp"
-        android:layout_height="280dp"
-        android:layout_weight="1"
-        android:contentDescription="TODO" />
     <!--    <Button-->
     <!--        android:id="@+id/edit_movie_button"-->
     <!--        android:layout_width="match_parent"-->

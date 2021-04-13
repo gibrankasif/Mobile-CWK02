@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileCWK02">
-        <activity android:name=".IMDBMovies"></activity>
-        <activity android:name=".MovieRatings" />
-        <activity android:name=".SearchMovies" />
-        <activity android:name=".EditMovie" />
-        <activity android:name=".FavouriteMovies" />
-        <activity android:name=".DisplayMovies" />
-        <activity android:name=".RegisterMovie" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".IMDBMovies" android:label="IMDB Search Results" android:configChanges="orientation|screenSize" />
+        <activity android:name=".MovieRatings" android:label="Movie Ratings" android:configChanges="orientation|screenSize"/>
+        <activity android:name=".SearchMovies" android:label="Search Movies" android:configChanges="orientation|screenSize"/>
+        <activity android:name=".EditMovie" android:label="Update Movie" android:configChanges="orientation|screenSize"/>
+        <activity android:name=".FavouriteMovies" android:label="Favourites" android:configChanges="orientation|screenSize"/>
+        <activity android:name=".DisplayMovies" android:label="My Movies" android:configChanges="orientation|screenSize"/>
+        <activity android:name=".RegisterMovie" android:label="Add Movie" android:configChanges="orientation|screenSize"/>
+        <activity android:name=".MainActivity"  android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

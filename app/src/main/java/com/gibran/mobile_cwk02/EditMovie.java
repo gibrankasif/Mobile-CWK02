@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,10 +28,10 @@ import java.util.Date;
 import java.util.List;
 
 public class EditMovie extends AppCompatActivity {
-    ListView listView;
-    MovieData movieData;
-    ArrayList<Movie> movieList;
-    MovieEditAdapter movieAdapter;
+    private ListView listView;
+    private MovieData movieData;
+    private ArrayList<Movie> movieList;
+    private MovieEditAdapter movieAdapter;
     private StringBuilder actorsPlaying;
 
     @Override
@@ -59,9 +61,15 @@ public class EditMovie extends AppCompatActivity {
 
     public void changeMovieInfo( Movie movie) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        TextView textView = new TextView(this);
+        textView.setText("Please update the following info: ");
+        textView.setPadding(20, 30, 20, 30);
+        textView.setTextSize(20F);
+        textView.setBackgroundColor(Color.BLACK);
+        textView.setTextColor(Color.WHITE);
         LayoutInflater inflater = EditMovie.this.getLayoutInflater();
-        builder.setTitle("Custom view with 4 EditTexts");
-        builder.setMessage("AlertDialog");
+        builder.setCustomTitle(textView);
+//        builder.setMessage("Edit Movie");
         builder.setView(R.layout.movie_edit_form_dialog);
         //In case it gives you an error for setView(View) try
         builder.setView(inflater.inflate(R.layout.movie_edit_form_dialog, null));
@@ -145,11 +153,11 @@ public class EditMovie extends AppCompatActivity {
 
         Rect displayRectangle = new Rect();
 
-        Window window = this.getWindow();
-        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
-        dialog.getWindow().setLayout((int) (displayRectangle.width() *
-                1.0f), (int) (displayRectangle.height() * 1.0f));
-        dialog.getWindow().setBackgroundDrawableResource(android.R.drawable.alert_dark_frame);
+//        Window window = this.getWindow();
+//        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+//        dialog.getWindow().setLayout((int) (displayRectangle.width() *
+//                1.0f), (int) (displayRectangle.height() * 0.82f));
+//        dialog.getWindow().setBackgroundDrawableResource(android.R.drawable.alert_dark_frame);
     }
 
     public void alertFormValidator(EditText movieYear, EditText movieActors) {
