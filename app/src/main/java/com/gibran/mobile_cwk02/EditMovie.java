@@ -49,7 +49,8 @@ public class EditMovie extends AppCompatActivity {
         {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {changeMovieInfo(movieList.get(position));
+            {
+                changeMovieInfo(movieList.get(position));
                 Log.i("Result:", movieAdapter.getItem(position).toString());
                 // Get data from your adapter,   the above code of line give the custom adapter's object of   current position of selected list item
             }

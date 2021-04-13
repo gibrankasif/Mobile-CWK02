@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/movieName"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:text="@string/movies"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textColorHint="@color/white"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <CheckedTextView
+            android:id="@+id/imdb_movie_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF0505"
+            android:textColor="@color/white"
+            app:backgroundTint="#FF1212" />
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/moviePic"
+        android:layout_width="450dp"
+        android:layout_height="280dp"
+        android:layout_weight="1"
+        android:contentDescription="TODO" />
+    <!--    <Button-->
+    <!--        android:id="@+id/edit_movie_button"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:background="#FF0505"-->
+    <!--        app:backgroundTint="#FF1212" />-->
+
+
+
+    <!--    <CheckedTextView-->
+    <!--        android:id="@+id/simpleCheckedTextView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:checked="false"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:padding="30dp"-->
+    <!--        android:textColor="#FFFFFF"-->
+    <!--        android:textColorHint="#FFFFFF" />-->
+</LinearLayout>

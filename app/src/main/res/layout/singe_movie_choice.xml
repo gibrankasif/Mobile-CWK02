@@ -2,33 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_weight="1"
 
-    <TextView
-        android:id="@+id/movieName"
+    android:orientation="horizontal">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/movies"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"/>
-<!--    <CheckedTextView-->
-<!--        android:id="@+id/simpleCheckedTextView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:checked="false"-->
-<!--        android:checkMark="?android:attr/textCheckMark"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:padding="30dp"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:textColorHint="#FFFFFF" />-->
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/movieName"
+            style="@style/TextviewStyle"
+            android:layout_width="208dp"
+            android:layout_height="115dp"
+            android:layout_gravity="center"
+            android:text="@string/movies"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+
+    </LinearLayout>
 
     <CheckedTextView
         android:id="@+id/simpleCheckedTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="0dp"
+        android:layout_weight="1.5"
         android:checked="false"
-        android:gravity="center_vertical"
-        android:padding="30dp"
+        android:gravity="top"
+        android:padding="40dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF" />
+
+
 </LinearLayout>

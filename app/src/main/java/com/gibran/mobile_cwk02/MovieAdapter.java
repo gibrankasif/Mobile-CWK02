@@ -71,20 +71,20 @@ public class MovieAdapter extends BaseAdapter {
 
 
         //set address and description
-        String completeAddress = movie.getActors() + " " + movie.getDirector() + ", " + movie.getReview() + ", " + movie.getTitle();
+        String completeAddress = movie.getTitle() +"  \n"+ movie.getYear() +"  \n"+ movie.getDirector();
         textView1.setText(completeAddress);
 
         textView.setOnClickListener(v -> {
 
             if (textView.isChecked()) {
 // set cheek mark drawable and set checked property to false
-                value = "un-Checked";
+                value = "Un-Selected";
                 textView.setCheckMarkDrawable(R.drawable.favourite_movie_icon);
                 movie.setFavourite(false);
                 textView.setChecked(false);
             } else {
 // set cheek mark drawable and set checked property to true
-                value = "Checked";
+                value = "Favourite";
                 textView.setCheckMarkDrawable(R.drawable.favourite_movie_icon_checked);
                 movie.setFavourite(true);
                 textView.setChecked(true);

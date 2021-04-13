@@ -19,6 +19,8 @@
         android:textColor="@color/white"
         android:background="#FF0505"
         app:backgroundTint="#FF1212"/>
+
+
 <!--    <Button-->
 <!--        android:id="@+id/edit_movie_button"-->
 <!--        android:layout_width="match_parent"-->

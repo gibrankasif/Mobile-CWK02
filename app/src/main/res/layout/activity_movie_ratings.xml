@@ -25,7 +25,6 @@
         android:text="@string/find_movie_in_imdb"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="getIMBDData"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,35 +19,60 @@ public class MainActivity extends AppCompatActivity {
         } catch (NullPointerException ignored) {
         }
 
-    }
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.reg_movie_button:
+        Button registerBtn = findViewById(R.id.reg_movie_button);
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent movieOptionRegister = new Intent(MainActivity.this, RegisterMovie.class);
                 startActivity(movieOptionRegister);
-                break;
-            case R.id.display_movies_button:
+            }
+        });
+
+        Button displayBtn = findViewById(R.id.display_movies_button);
+        displayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent movieOptionDisplay = new Intent(MainActivity.this, DisplayMovies.class);
                 startActivity(movieOptionDisplay);
-                break;
-            case R.id.favourites_button:
+            }
+        });
+
+        Button favouriteBtn = findViewById(R.id.favourites_button);
+        favouriteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent movieOptionDisplayFavourites = new Intent(MainActivity.this, FavouriteMovies.class);
                 startActivity(movieOptionDisplayFavourites);
-                break;
-            case R.id.edit_movies_button:
+            }
+        });
+
+        Button editBtn = findViewById(R.id.edit_movies_button);
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent movieOptionEdit = new Intent(MainActivity.this, EditMovie.class);
                 startActivity(movieOptionEdit);
-                break;
-            case R.id.search_movie_button:
+            }
+        });
+
+        Button searchBtn = findViewById(R.id.search_movie_button);
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent movieOptionSearch = new Intent(MainActivity.this, SearchMovies.class);
                 startActivity(movieOptionSearch);
-                break;
-            case R.id.ratings_button:
+            }
+        });
+
+        Button ratingsBtn = findViewById(R.id.ratings_button);
+        ratingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent movieOptionRatings = new Intent(MainActivity.this, MovieRatings.class);
                 startActivity(movieOptionRatings);
-                break;
-            default:
-                break;
-        }
+            }
+        });
+
     }
+
 }

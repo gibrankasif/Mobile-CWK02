@@ -98,6 +98,7 @@ public class MovieData extends SQLiteOpenHelper {
             values.put(FAVOURITE, "1");
         }
         movieDB.update(TABLE_NAME, values, whereClause, whereArgs);
+        Toast.makeText(this.ctx, "Successfully saved", Toast.LENGTH_SHORT).show();
 
     }
 

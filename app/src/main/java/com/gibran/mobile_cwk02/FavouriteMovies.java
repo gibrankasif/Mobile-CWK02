@@ -23,7 +23,6 @@ public class FavouriteMovies extends AppCompatActivity {
         setContentView(R.layout.activity_favourite_movies);
         movieData = new MovieData(this);
         movieList = movieData.getFavouriteMovieObjects();
-        Toast.makeText(this, movieList.toString(), Toast.LENGTH_SHORT).show();
 
         adapter = new MovieAdapter(getApplicationContext(),  movieList);
         setListView();
@@ -53,6 +52,7 @@ public class FavouriteMovies extends AppCompatActivity {
         }
         movieList = movieData.getFavouriteMovieObjects();
         adapter = new MovieAdapter(getApplicationContext(),  movieList);
+
         setListView();
     }
 }

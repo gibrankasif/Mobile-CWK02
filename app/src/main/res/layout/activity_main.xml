@@ -7,7 +7,10 @@
     android:background="@drawable/ic_background_template"
     tools:context=".MainActivity">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+
+    style="@style/Widget.MaterialComponents.Button"
+        app:cornerRadius="24dp"
         android:id="@+id/reg_movie_button"
         android:layout_width="220dp"
         android:layout_height="70dp"
@@ -15,13 +18,14 @@
         android:text="@string/register_movie"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+   <com.google.android.material.button.MaterialButton
+       style="@style/Widget.MaterialComponents.Button"
+       app:cornerRadius="24dp"
         android:id="@+id/display_movies_button"
         android:layout_width="220dp"
         android:layout_height="70dp"
@@ -29,13 +33,14 @@
         android:text="@string/display_movies"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_movie_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button"
+        app:cornerRadius="24dp"
         android:id="@+id/favourites_button"
         android:layout_width="220dp"
         android:layout_height="70dp"
@@ -43,13 +48,14 @@
         android:text="@string/favourites"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/display_movies_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button"
+        app:cornerRadius="24dp"
         android:id="@+id/edit_movies_button"
         android:layout_width="220dp"
         android:layout_height="70dp"
@@ -57,13 +63,14 @@
         android:text="@string/edit_movies"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favourites_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button"
+        app:cornerRadius="24dp"
         android:id="@+id/search_movie_button"
         android:layout_width="220dp"
         android:layout_height="70dp"
@@ -71,14 +78,15 @@
         android:text="@string/search_movie"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_movies_button" />
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button"
+        app:cornerRadius="24dp"
         android:id="@+id/ratings_button"
         android:layout_width="220dp"
         android:layout_height="70dp"
@@ -86,7 +94,6 @@
         android:text="@string/rate_movie"
         android:textSize="18sp"
         app:backgroundTint="#FFAB40"
-        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
